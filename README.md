@@ -1,7 +1,7 @@
 # tolerance
 fault tolerant math operations
 
-Inspired by [this](https://www.youtube.com/watch?v=N5faA2MZ6jY) video about how spaces handles bit flips caused by radiation while doing calculations in space.
+Inspired by [this](https://www.youtube.com/watch?v=N5faA2MZ6jY) video about how spacex handles bit flips caused by radiation while doing calculations in space.
 
 They handle the faults by having 3x dual core cpus and redundant RAM. Each cpu is run in single core mode, so if a math calculation needs to be done, it runs on all 6 cpus at the same time then the output is compared. This tolerance package simulates that by running concurrent go routines and storing the results in a voting map. Then we check the values in the voting map, if a value has more than 50% of the votes it is returned, retry otherwise.
 
