@@ -1,2 +1,2 @@
 # tolerance
-fault tolerant math opeerations
+fault tolerant math operations
