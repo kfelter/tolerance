@@ -6,8 +6,9 @@ Inspired by [this](https://www.youtube.com/watch?v=N5faA2MZ6jY) video about how 
 They handle the faults by having 3x dual core cpus and redundant RAM. Each cpu is run in single core mode, so if a math calculation needs to be done, it runs on all 6 cpus at the same time then the output is compared. This tolerance package simulates that by running concurrent go routines and storing the results in a voting map. Then we check the values in the voting map, if a value has more than 50% of the votes it is returned, retry otherwise.
 
 # cli
-Summing
+## Summing
 `go run cmd/math/main.go add 1 2 3 4`
+
 Result
 ```
 2020/06/12 01:17:11 Using 8 redundant processes
@@ -26,8 +27,9 @@ Result
 result [10] attempts [3] faulty% [50] time [467.632µs]
 ```
 
-Subtract b from a
+## Subtract b from a
 `go run cmd/math/main.go sub 6 4`
+
 Result
 ```
 2020/06/12 01:19:14 args [/var/folders/xq/y3xb0ppd0998dtk6wb0b6gtc0000gp/T/go-build634907364/b001/exe/main sub 6 4]
@@ -45,8 +47,10 @@ Result
 result [2] attempts [3] faulty% [50] time [686.352µs]
 ```
 
-Factorial N
+
+## Factorial N
 `go run cmd/math/main.go fact 5`
+
 Result
 ```
 2020/06/12 01:20:42 Using 8 redundant processes
@@ -108,4 +112,3 @@ Result
 2020/06/12 01:20:42 result 120 has 5 votes
 result [120] attempts [6] faulty% [50] time [1.084204ms]
 ```
-
